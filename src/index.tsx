@@ -1,10 +1,11 @@
 import React from "react";
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom";
 import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "styled-components";
 import App from "./App";
-import { darkTheme } from "./theme";
 import { createGlobalStyle } from "styled-components";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { theme } from "./theme";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -61,8 +62,9 @@ table {
 body {
   font-weight: 300;
   font-family: 'Source Sans Pro', sans-serif;
-  color:black;
+  color:${(props) => props.theme.white.darker};
   line-height: 1.2;
+  background-color: black;
 }
 a {
   text-decoration:none;
@@ -70,19 +72,18 @@ a {
 }
 `;
 
+const client = new QueryClient();
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-      <ThemeProvider theme={darkTheme}>
-        <GlobalStyle />
-        <App />
-      </ThemeProvider>
+      <QueryClientProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <App />
+        </ThemeProvider>
+      </QueryClientProvider>
     </RecoilRoot>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
