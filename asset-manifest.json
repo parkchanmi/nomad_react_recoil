@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/nomad_react_recoil/static/js/main.8cb22713.js",
+    "main.js": "/nomad_react_recoil/static/js/main.72f8e3bc.js",
     "index.html": "/nomad_react_recoil/index.html",
-    "main.8cb22713.js.map": "/nomad_react_recoil/static/js/main.8cb22713.js.map"
+    "main.72f8e3bc.js.map": "/nomad_react_recoil/static/js/main.72f8e3bc.js.map"
   },
   "entrypoints": [
-    "static/js/main.8cb22713.js"
+    "static/js/main.72f8e3bc.js"
   ]
 }
